@@ -1,0 +1,26 @@
+<div id="home" class="row">
+  <div class="col-md-12 ">
+    <h2>Welcome to the {{ title }} page!</h2>
+
+    <div class="alert alert-warning">{{ message }}</div>
+    <div class="row">
+      <div class="col-lg-12">
+        <button class="btn btn-danger" ng-click="logout()">Log Out</button>
+        <button class="btn btn-primary" ng-click="test()">Test</button>
+        {{ TestArea }} <br>
+        <button class="btn btn-primary" ng-click="test1()">Test2</button>
+        {{ TestArea2 }} <br>
+        <a href="#/home">Click Here</a>
+      </div>
+    </div>
+    <div class="col-lg-12 ">
+      <div class="col-lg-6">
+        <img src="img/demo1.jpg" shows-message-when-hovered message="Im the first house.">
+      </div>
+      <div class="col-lg-6">
+        <img src="img/demo2.jpg" shows-message-when-hovered message="Im the second house.">
+      </div>
+    </div>
+    
+  </div>
+</div>

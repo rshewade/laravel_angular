@@ -1,0 +1,60 @@
+<div class="page-header" style="margin-top:0px;">
+	<table width="100%"><tr>
+	<td width="40%"><h2>User Management</h2></td>
+	<td><input type="text" class ="form-control" placeholder = "Search" ng-model="searchText" ng-change="search()"></td>
+	<td class="text-right" width="10%"><a  href="#/adduser">add new</a></td>
+	</tr></table>	
+</div>
+	<div>{{ msg }}</div>
+	<div class="row">
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr style="background-color:darkgray;">
+				<td>Actions</td>
+				<td>User ID</td>
+				<td>User Name</td>
+				<td>Email</td>
+				<td>Type</td>
+				<td>Verified On</td>
+				<td>Status</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users | filter : searchStr">
+				<td style="white-space: nowrap">
+					<form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="saveUser($index)" class = "form-buttons form-inline" shown="inserted == user">
+						<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success glyphicon glyphicon-floppy-saved"></button>
+						<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-danger glyphicon glyphicon-floppy-remove"></button>
+					</form>
+					<div class="buttons" ng-show="!rowform.$visible">
+						<button class="btn btn-sm btn-primary glyphicon glyphicon-pencil"  ng-click="rowform.$show()"> </button>
+						<button class="btn btn-sm btn-danger glyphicon glyphicon-envelope" ng-click="removeUser($index)"> </button>
+						
+					</div>
+				</td>
+				<td><span editable-text="user.userid" e-name="userid" e-form="rowform" e-required>{{ user.userid }}</td>
+				<td><span editable-text="user.name" e-name="name" e-form="rowform" e-required>{{ user.name }}</td>
+				<td><span editable-text="user.email" e-name="email" e-form="rowform" e-required>{{ user.email }}</td>
+				<td>{{ user.role }}</span></td>
+				<td width="100px">{{ user.verified_on }}</td>
+				<td width="100px">
+					<div class="btn-group">
+						<button type="button" class="btn btn-sm" ng-class="{true:'btn-success'}[user.Status<1]" ng-click="sts_cng(user,1)" data-ng-disabled = "user.Status>0"><i class="fa fa-check"></i></button>
+						<button type="button" class="btn btn-sm" ng-class="{true:'btn-danger'}[user.Status>0]" ng-click="sts_cng(user,0)" data-ng-disabled="user.Status<1"><i class="fa fa-times"></i></button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+		<div class="text-muted">
+	<h4>Pending activities related to this page</h4>
+		<ul>
+			<li>Send confirmation email</li>
+			<li>Created by</li>
+			<li>Updated by</li>
+			<li>Login based on actual password</li>
+			<li>Change Password</li>
+			<li>User Roles based access</li>
+		</ul>
+	</div>

@@ -1,4 +1,4 @@
-var app = angular.module("app", ['ngSanitize','ui.router'])
+var app = angular.module("app", ['ngSanitize','ui.router']);
 
 app.run(function($rootScope, $location, $state, $http, AuthenticationService, FlashService, SessionService, CSRF_TOKEN){
 	var routesNotRequireAuth = ['/login'];

@@ -1,0 +1,39 @@
+{
+  "name": "bamp2",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rshewade/laravel_angular",
+  "authors": [
+    "rshewade <rshewade@gmail.com>"
+  ],
+  "description": "bamp2",
+  "main": "css/style.css",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.25",
+    "bootstrap": "~3.2.0",
+    "ng-table": "~0.3.3",
+    "jquery": "~2.1.1",
+    "fontawesome": "~4.2.0",
+    "html5-boilerplate": "~4.3.0",
+    "normalize.css": "~3.0.1",
+    "modernizr": "~2.8.3",
+    "underscore": "~1.7.0",
+    "angular-ui-router": "~0.2.11",
+    "ng-flow": "~2.5.1",
+    "ngSanitize": "~0.0.2",
+    "angular-sanitize": "~1.2.25",
+    "ng-grid": "~2.0.13",
+    "requirejs": "~2.1.15",
+    "requirejs-domready": "~2.0.1",
+    "requirejs-text": "~2.0.12",
+    "angular-mocks": "~1.2.25",
+    "headjs": "~1.0.3"
+  }
+}

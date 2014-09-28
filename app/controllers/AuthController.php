@@ -8,7 +8,7 @@ class AuthController extends BaseController{
 			$ltime = time();
 			$code = csrf_token().str_random(40) . $ltime;
 			$usr = Auth::user();
-			$access = DB::table('access_db')->select('route','name')->where('role', $usr->role)->get();
+			$access = DB::table('access_db')->select('eroute','name')->where('role', $usr->role)->get();
 			$usr->routes = $access;
 			$usr->code = $code;
 			Session::put('ltime',$ltime);
@@ -31,7 +31,7 @@ class AuthController extends BaseController{
 		$csrf = $csrf = substr($code, 0,strlen($code)-50);		
 		if ($csrf == csrf_token()){
 			$usr = Auth::user();
-			$access = DB::table('access_db')->select('route','name')->where('role', $usr->role)->get();
+			$access = DB::table('access_db')->select('eroute','name')->where('role', $usr->role)->get();
 			$usr->routes = $access;
 			$usr->code = $code;
 			return Response::json($usr);	

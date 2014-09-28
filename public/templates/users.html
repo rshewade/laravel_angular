@@ -2,50 +2,102 @@
 	<table width="100%"><tr>
 	<td width="40%"><h2>User Management</h2></td>
 	<td><input type="text" class ="form-control" placeholder = "Search" ng-model="searchText" ng-change="search()"></td>
-	<td class="text-right" width="10%"><a  href="#/adduser">add new</a></td>
+	<td class="text-right" width="10%"><a  href="" ng-click="test(5)">add new</a></td>
 	</tr></table>	
 </div>
 	<div>{{ msg }}</div>
 	<div class="row">
-	<table class="table table-striped table-bordered">
+	<table st-table="sfusers" st-safe-src="users" st-table="users" class="table table-striped table-bordered">
 		<thead>
 			<tr style="background-color:darkgray;">
-				<td>Actions</td>
-				<td>User ID</td>
-				<td>User Name</td>
-				<td>Email</td>
-				<td>Type</td>
-				<td>Verified On</td>
-				<td>Status</td>
+				<th>Actions</th>
+				<th st-sort="userid">User ID</th>
+				<th st-sort="name">User Name</th>
+				<th st-sort="email">Email</th>
+				<th st-sort="role">Type</th>
+				<th st-sort="verified_on">Verified On</th>
+				<th >Status</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="user in users | filter : searchStr">
-				<td style="white-space: nowrap">
-					<form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="saveUser($index)" class = "form-buttons form-inline" shown="inserted == user">
-						<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success glyphicon glyphicon-floppy-saved"></button>
-						<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-danger glyphicon glyphicon-floppy-remove"></button>
-					</form>
-					<div class="buttons" ng-show="!rowform.$visible">
-						<button class="btn btn-sm btn-primary glyphicon glyphicon-pencil"  ng-click="rowform.$show()"> </button>
-						<button class="btn btn-sm btn-danger glyphicon glyphicon-envelope" ng-click="removeUser($index)"> </button>
-						
-					</div>
+			<tr ng-repeat="user in sfusers | filter : searchStr">
+				<td>
+					<a  href="" ng-click="useredit(user.id)" data-toggle="modal" data-target="#adduser">Edit</a></td>
 				</td>
-				<td><span editable-text="user.userid" e-name="userid" e-form="rowform" e-required>{{ user.userid }}</td>
-				<td><span editable-text="user.name" e-name="name" e-form="rowform" e-required>{{ user.name }}</td>
-				<td><span editable-text="user.email" e-name="email" e-form="rowform" e-required>{{ user.email }}</td>
+				<td>{{ user.userid}}</td>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
 				<td>{{ user.role }}</span></td>
-				<td width="100px">{{ user.verified_on }}</td>
-				<td width="100px">
-					<div class="btn-group">
+				<td width="100px">{{ user.verified_on | date }}</td>
+				<td width="25px">
+					<label><i class="fa fa-check" ng-show="user.Status=1" style="color:green"></i>
+					<i class="fa fa-times"  ng-show="user.Status=0" style="color:red"></i></label>
+					<!-- <div class="btn-group">
 						<button type="button" class="btn btn-sm" ng-class="{true:'btn-success'}[user.Status<1]" ng-click="sts_cng(user,1)" data-ng-disabled = "user.Status>0"><i class="fa fa-check"></i></button>
 						<button type="button" class="btn btn-sm" ng-class="{true:'btn-danger'}[user.Status>0]" ng-click="sts_cng(user,0)" data-ng-disabled="user.Status<1"><i class="fa fa-times"></i></button>
-					</div>
+					</div> -->
 				</td>
+
 			</tr>
 		</tbody>
 	</table>
+	</div>
+	<div class="row">
+	<div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content row">
+				<form class="form" method="POST" ng-submit="addUser()">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+				        <span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Add or Modify User</h4>
+				      </div>
+				      <div class="modal-body">
+							<div class="col-md-4">
+									<div class="form-group">
+										<label for="fname">First Name</label>
+										<input id="fname" type="text" class="form-control" ng-model="usr.userid" required>
+									</div>
+									<div class="form-group">
+										<label for="lname">Last Name</label>
+										<input id="lname" type="text" class="form-control" ng-model="usr.name" required>
+									</div>
+									<div class="form-group">
+										<label for="utype">User Type</label>
+										<select id="utype" class="form-control" ng-model="usr.role" required>
+											<option value="">Select</option>
+											<option value="UL1">Admin</option>
+											<option value="UL2">Staff</option>
+											<option value="CL1">Client</option>
+											<option value="CL2">End Client</option>
+										</select>
+									</div>
+							</div>
+							<div class="col-md-6 col-md-push-1">
+									<div class="form-group">
+										<label for="cref">Client Reference</label>
+										<input id="cref" type="text" class="form-control" ng-model="usr.Cl_Ref" >
+									</div>
+									<div class="form-group">
+										<label for="cname">Client / User Name</label>
+										<input id="cname" type="text" class="form-control" ng-model="usr.name" required>
+									</div>
+									<div class="form-group">
+										<label for="cmail">Client / User Email <small>(This would be user login ID)</small></label>
+										<input id="cmail" type="email" class="form-control" ng-model="usr.email" required>
+									</div>
+							</div>
+							<div class="modal-footer pull-right">
+								<button class="btn btn-primary" type="submit">Save</button>
+								<button class="btn btn-danger" type="button" ng-click="addcancel()" data-dismiss="modal">Cancel</button>
+							</div>
+						</form>
+				      </div>
+			</div>
+		</div>
+	</div>
+		
+
 	</div>
 		<div class="text-muted">
 	<h4>Pending activities related to this page</h4>

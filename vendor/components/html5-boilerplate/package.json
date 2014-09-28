@@ -1,0 +1,14 @@
+{
+  "name": "html5-boilerplate",
+  "version": "4.1.0",
+  "description": "HTML5 Boilerplate helps you build fast, robust, and adaptable web apps or sites.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/component/html5-boilerplate.git"
+  },
+  "author": {
+    "name": "HTML5 Boilerplate",
+    "url": "http://html5boilerplate.com/"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "html5boilerplate",
+  "version": "4.1.0",
+  "description": "HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "homepage": "http://html5boilerplate.com/",
+  "keywords": [
+    "html5",
+    "css3"
+  ],
+  "main": "css/main.css"
+}

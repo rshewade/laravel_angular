@@ -6,3 +6,32 @@
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
+
+.smart-table-data-row.selected {
+    background: darkgray;
+}
+
+.header-content:before {
+    content: ' ';
+    position: relative;
+    left: -5px;
+}
+
+.st-sort-ascent:before {
+    content: '\25B4';
+}
+
+.st-sort-descent:before {
+    content: "\25BE";
+}
+
+.pagination {
+    text-align: center;
+    cursor: pointer;
+}
+
+.smart-table th {
+    width: 120px;
+    padding: 0 20px;
+}

@@ -1,10 +1,15 @@
 app.controller('UsersController', function($scope, $http){
-			$scope.statuses = [{value: 1, text: 'Active'},{value: 0, text: 'Inactive'}]; 
-
+			// $scope.statuses = [{value: 1, text: 'Active'},{value: 0, text: 'Inactive'}]; 
 			$http.post('/getusers').success(function(data){
 				$scope.users = data;
-			});	
-		// }
+			});
+		$scope.useredit = function(id){
+			$scope.usr = {};
+			$http.post('/getuser/' + id).success(function(data){
+				$scope.usr = data;
+			});
+		}
+
 		$scope.showStatus = function(user){
 			var selected = [];
 			if (user.Status){
@@ -40,7 +45,7 @@ app.controller('UsersController', function($scope, $http){
 			});	
 		};
 		$scope.addcancel = function(){
-			$location.path('/users');
+			// $location.path('/users');
 		};
 		$scope.search = function(){
 			$scope.searchStr = $scope.searchText;

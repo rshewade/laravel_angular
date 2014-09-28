@@ -2,7 +2,7 @@
 
 class AccessController extends BaseController{
 	Public function getaccess(){
-		$access = DB::table('access_db')->select('route','name')->where('role', Input::json('role'))->get();
+		$access = DB::table('access_db')->select('eroute','name')->where('role', Input::json('role'))->get();
 		return Response::json($access);
 	}
 

@@ -88,7 +88,10 @@ Route::filter('csrf_header', function($route, $request){
 	if ($code == "" || !Session::has('ltime') ){
 		if (Session::token() != Input::json('csrf_token'))
 		{
-			throw new Illuminate\Session\TokenMismatchException;
+			// throw new Illuminate\Session\TokenMismatchException;
+			Session::forget('ltime');
+			Session::forget('sescode');
+			return Response::json(array('flash' => 'Session invalidated'), 401);
 		} 	
 	} else {	
 	$csrf = substr($code, 0,strlen($code)-50);
@@ -123,6 +126,8 @@ Route::filter('csrf_json', function(){
 		throw new Illuminate\Session\TokenMismatchException;
 	}	
 });
+
+
 Route::filter('csrf', function()
 {
 	if (Session::token() != Input::get('_token'))

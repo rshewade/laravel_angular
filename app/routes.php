@@ -23,11 +23,23 @@ Route::get('users', function(){
 
 Route::group(array('before' => 'csrf_header'), function(){
 	Route::post('/auth/login', 'AuthController@login');	
-	Route::get('/auth/logout', 'AuthController@logout');
+	
 	Route::post('/access', array('before' => 'auth', 'uses' => 'AccessController@getaccess'));
 	Route::get('/accesscode', array('before' => 'auth', 'uses' => 'AccessController@getcode'));		
-	Route::post('/getsession',array('before' => 'auth', 'uses' => 'AuthController@getsession'));
+	
+	
 });
+
+
+Route::group(array('before' => 'auth'), function(){
+		Route::get('/auth/logout', 'AuthController@logout');
+		Route::post('/getsession','AuthController@getsession');
+		Route::post('/getusers', 'UsersController@getusers');	
+		Route::post('/getuser/{id}', 'UsersController@getuser');	
+		
+	});
+
+Route::when('/UL1/*', 'IsUL1');
 
 Route::get('/code', 'AccessController@getcode1');	
 

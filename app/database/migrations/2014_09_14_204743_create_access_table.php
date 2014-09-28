@@ -16,8 +16,10 @@ class CreateAccessTable extends Migration {
 		{
 			$t->increments('id');
 			$t->string('role');
-			$t->string('route');
+			$t->string('eroute');
+			$t->string('iroutes');
 			$t->string('name');
+			$t->integer('parentid');
 		});
 	}
 

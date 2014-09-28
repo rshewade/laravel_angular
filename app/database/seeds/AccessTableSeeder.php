@@ -6,19 +6,25 @@ class AccessTableSeeder extends Seeder{
 
 		$access = array(
 			array(
-				'role'	=> 'UL1',
-				'route'	=> '/home',
-				'name'	=> 'Dashboard'
+				'role'		=> 'UL1',
+				'eroute'	=> '/home',
+				'iroutes'	=> '',
+				'name'		=> 'Dashboard',
+				'parentid'	=> 0
 				),
 			array(
-				'role'	=> 'UL1',
-				'route'	=> '/users',
-				'name'	=> 'User Management'
+				'role'		=> 'UL1',
+				'eroute'	=> '/users',
+				'iroutes'	=> '',
+				'name'		=> 'User Management',
+				'parentid'	=> 0
 				),
 			array(
-				'role'	=> 'UL1',
-				'route'	=> '/report',
-				'name'	=> 'Reports'
+				'role'		=> 'UL1',
+				'eroute'	=> '/report',
+				'iroutes'	=> '',
+				'name'		=> 'Reports',
+				'parentid'	=> 0
 				)
 			
 			);

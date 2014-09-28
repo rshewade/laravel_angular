@@ -1,0 +1,21 @@
+{
+  "name": "components/angular-resource",
+  "description": "Resource module for AngularJS",
+  "type": "component",
+  "homepage": "http://angularjs.org",
+  "license": "MIT",
+  "require": {
+    "components/angular.js": "1.2.0"
+  },
+  "extra": {
+    "component": {
+      "name": "angular-resource",
+      "scripts": [
+        "angular-resource.js"
+      ],
+      "files": [
+        "angular-resource.min.js"
+      ]
+    }
+  }
+}

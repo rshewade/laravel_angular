@@ -1,0 +1,23 @@
+{
+    "name": "components/html5-boilerplate",
+    "description": "HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.",
+    "keywords": [
+        "html5",
+        "css3"
+    ],
+    "type": "component",
+    "homepage": "http://html5boilerplate.com",
+    "license": "MIT",
+    "require": {
+        "components/jquery": ">=1.9.1",
+        "components/modernizr": ">=2.6.2",
+        "components/normalize.css": "1.*"
+    },
+    "extra": {
+        "component": {
+            "styles": [
+                "css/main.css"
+            ]
+        }
+    }
+}

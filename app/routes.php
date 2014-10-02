@@ -35,7 +35,7 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get('/auth/logout', 'AuthController@logout');
 		Route::post('/getsession','AuthController@getsession');
 		Route::post('/getusers', 'UsersController@getusers');	
-		Route::post('/getuser/{id}', 'UsersController@getuser');	
+		Route::post('/update/{id}', 'UsersController@update');	
 		
 	});
 

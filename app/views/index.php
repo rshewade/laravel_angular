@@ -14,7 +14,7 @@
   <script type="text/javascript" src="packages/bower/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="packages/bower/bootstrap/dist/js/bootstrap.js"></script>
   <script type="text/javascript" src="packages/bower/angularjs/angular.min.js"></script>
-  <script type="text/javascript" src="packages/bower/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="packages/bower/angular-bootstrap/ui-bootstrap.js"></script>
   <script type="text/javascript" src="packages/bower/angular-sanitize/angular-sanitize.min.js"></script>
   <!-- <script type="text/javascript" src="packages/bower/angular-route/angular-route.js"></script> -->
   <script type="text/javascript" src="packages/bower/angular-ui-router/release/angular-ui-router.min.js"></script>

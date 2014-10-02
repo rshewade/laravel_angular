@@ -2,7 +2,7 @@
 	<table width="100%"><tr>
 	<td width="40%"><h2>User Management</h2></td>
 	<td><input type="text" class ="form-control" placeholder = "Search" ng-model="searchText" ng-change="search()"></td>
-	<td class="text-right" width="10%"><a  href="" ng-click="test(5)">add new</a></td>
+	<td class="text-right" width="10%"><a  href="" ng-click="useredit(0)"  data-toggle="modal" data-target="#adduser">add new</a></td>
 	</tr></table>	
 </div>
 	<div>{{ msg }}</div>
@@ -22,7 +22,7 @@
 		<tbody>
 			<tr ng-repeat="user in sfusers | filter : searchStr">
 				<td>
-					<a  href="" ng-click="useredit(user.id)" data-toggle="modal" data-target="#adduser">Edit</a></td>
+					<a  href="" ng-click="useredit(user)" data-toggle="modal" data-target="#adduser">Edit</a></td>
 				</td>
 				<td>{{ user.userid}}</td>
 				<td>{{ user.name }}</td>
@@ -46,13 +46,13 @@
 	<div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content row">
-				<form class="form" method="POST" ng-submit="addUser()">
+				<form class="form" method="POST" ng-submit="saveUser()">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
 				        <span class="sr-only">Close</span></button>
 				        <h4 class="modal-title" id="myModalLabel">Add or Modify User</h4>
 				      </div>
-				      <div class="modal-body">
+				      	<div class="modal-body">
 							<div class="col-md-4">
 									<div class="form-group">
 										<label for="fname">First Name</label>
@@ -87,12 +87,13 @@
 										<input id="cmail" type="email" class="form-control" ng-model="usr.email" required>
 									</div>
 							</div>
-							<div class="modal-footer pull-right">
-								<button class="btn btn-primary" type="submit">Save</button>
+						</div>
+						<div class="modal-footer pull-right">
+								<button class="btn btn-primary" type="button" ng-click="saveUser()" data-dismiss="modal">Save</button>
 								<button class="btn btn-danger" type="button" ng-click="addcancel()" data-dismiss="modal">Cancel</button>
-							</div>
-						</form>
-				      </div>
+						</div>
+				</form>
+				      
 			</div>
 		</div>
 	</div>

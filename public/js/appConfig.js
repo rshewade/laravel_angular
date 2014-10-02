@@ -16,6 +16,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'templates/users.html',
       controller: 'UsersController'
     })
+    .state('users.add',{
+      url:'/users/add',
+      templateUrl: 'templates/add_edit_users.html',
+      controller: 'UsersController'
+    })
   ;
 });
 

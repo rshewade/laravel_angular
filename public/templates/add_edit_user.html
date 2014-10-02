@@ -1,0 +1,38 @@
+	<div class="row">
+				<form class="form" method="POST" ng-submit="addUser()">
+							<div class="col-md-4">
+									<div class="form-group">
+										<label for="fname">First Name</label>
+										<input id="fname" type="text" class="form-control" ng-model="usr.userid" required>
+									</div>
+									<div class="form-group">
+										<label for="lname">Last Name</label>
+										<input id="lname" type="text" class="form-control" ng-model="usr.name" required>
+									</div>
+									<div class="form-group">
+										<label for="utype">User Type</label>
+										<select id="utype" class="form-control" ng-model="usr.role" required>
+											<option value="">Select</option>
+											<option value="UL1">Admin</option>
+											<option value="UL2">Staff</option>
+											<option value="CL1">Client</option>
+											<option value="CL2">End Client</option>
+										</select>
+									</div>
+							</div>
+							<div class="col-md-6 col-md-push-1">
+									<div class="form-group">
+										<label for="cref">Client Reference</label>
+										<input id="cref" type="text" class="form-control" ng-model="usr.Cl_Ref" >
+									</div>
+									<div class="form-group">
+										<label for="cname">Client / User Name</label>
+										<input id="cname" type="text" class="form-control" ng-model="usr.name" required>
+									</div>
+									<div class="form-group">
+										<label for="cmail">Client / User Email <small>(This would be user login ID)</small></label>
+										<input id="cmail" type="email" class="form-control" ng-model="usr.email" required>
+									</div>
+							</div>
+						</form>
+	</div>
